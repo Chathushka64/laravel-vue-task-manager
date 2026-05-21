@@ -1,58 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Task Manager Pro - Full Stack Kanban Application
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Vue.js](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
-## About Laravel
+A modern, enterprise-level Task Management application built with **Laravel**, **Vue 3**, and **Tailwind CSS**. Designed with a developer-first approach, featuring a native Drag-and-Drop Kanban board, real-time filtering, and full dark mode support.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Key Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* **Kanban Board:** Native HTML5 Drag-and-Drop functionality to move tasks between 'To Do', 'In Progress', and 'Done' stages.
+* **Dark/Light Mode:** Seamless theme switching utilizing Tailwind CSS v4 custom variants.
+* **Smart Search & Filters:** Real-time client-side filtering via Vue computed properties without overloading the backend API.
+* **Inline Updates:** Edit task due dates directly from the task card for a frictionless UX.
+* **Interactive UI:** Toast notifications (Vue3-Toastify) integrated with Lucide Icons for dynamic user feedback.
+* **RESTful API:** Robust backend architecture built with Laravel, including strict validation and resource routing.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Screenshots
 
-## Learning Laravel
+<img width="1469" height="916" alt="Screenshot 2026-05-22 044100" src="https://github.com/user-attachments/assets/8ede713d-723f-409c-9e83-86832f66bb8f" />
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<img width="1467" height="902" alt="Screenshot 2026-05-22 044154" src="https://github.com/user-attachments/assets/cf3147dd-d1c8-4eaf-ab41-acdb68e95739" />
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Tech Stack
 
-## Agentic Development
+* **Backend:** PHP, Laravel 11, MySQL
+* **Frontend:** Vue 3 (Composition API), Vite, Tailwind CSS v4
+* **Icons & Notifications:** Lucide Vue Next, Vue3-Toastify
+* **Architecture:** Monolithic (Laravel + Vue integrated via Vite)
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Getting Started
 
-```bash
-composer require laravel/boost --dev
+Follow these steps to run the project locally on your machine.
 
-php artisan boost:install
-```
+### Prerequisites
+* PHP >= 8.2
+* Composer
+* Node.js & npm
+* MySQL (Laragon/XAMPP)
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### Installation
 
-## Contributing
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Chathushka64/laravel-vue-task-manager.git](https://github.com/Chathushka64/laravel-vue-task-manager.git)
+   cd laravel-vue-task-manager
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Install PHP dependencies:**
+   ```bash
+   composer install
+   ```
 
-## Code of Conduct
+3. **Install Node.js dependencies:**
+   ```bash
+   npm install
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. **Environment Setup:**
+   Copy the `.env.example` file and rename it to `.env`.
+   ```bash
+   cp .env.example .env
+   ```
+   Generate the application key:
+   ```bash
+   php artisan key:generate
+   ```
 
-## Security Vulnerabilities
+5. **Database Configuration:**
+   Create a database named `task_manager` in your MySQL server. Then update your `.env` file with your database credentials:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=task_manager
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. **Run Migrations:**
+   ```bash
+   php artisan migrate
+   ```
 
-## License
+7. **Start the Development Servers:**
+   You will need two terminal windows to run both the backend and frontend asset bundler.
+   
+   Terminal 1 (Laravel Server):
+   ```bash
+   php artisan serve
+   ```
+   
+   Terminal 2 (Vite Frontend):
+   ```bash
+   npm run dev
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+8. **Visit the App:** Open `http://127.0.0.1:8000` in your browser.
+
+---
+**Developed by Chathushka Madhusanka** - *Full Stack Developer*
+
