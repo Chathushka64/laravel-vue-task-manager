@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->enum('priority', ['low', 'medium', 'high'])->default('medium');
+            $table->string('category')->default('general');
+            $table->date('due_date')->nullable();
             $table->text('description')->nullable();
             $table->enum('status', ['todo', 'in_progress', 'done'])->default('todo');
             $table->timestamps();

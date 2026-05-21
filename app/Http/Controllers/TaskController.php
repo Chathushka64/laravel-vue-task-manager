@@ -19,6 +19,9 @@ class TaskController extends Controller
         // Data tika hari da balanawa (Validation)
         $request->validate([
             'title' => 'required|string|max:255',
+            'priority' => 'in:low,medium,high',
+            'category' => 'nullable|string|max:50',
+            'due_date' => 'nullable|date',
         ]);
 
         // Database eke save karanawa
@@ -38,7 +41,10 @@ class TaskController extends Controller
     {
         $request->validate([
             'title' => 'sometimes|required|string|max:255',
-            'status' => 'in:todo,in_progress,done'
+            'status' => 'in:todo,in_progress,done',
+            'priority' => 'in:low,medium,high',
+            'category' => 'nullable|string|max:50',
+            'due_date' => 'nullable|date',
         ]);
 
         $task->update($request->all());

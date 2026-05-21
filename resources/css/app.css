@@ -1,9 +1,23 @@
 @import "tailwindcss";
+
+/* Tailwind v4 walata kiyanawa manual button eken witharak dark mode danna kiyala */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap');
 
 body {
   font-family: 'JetBrains Mono', monospace;
+  /* Original Light Mode Background & Text */
   background-color: #f8fafc;
+  color: #1f2937;
   background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
   background-size: 24px 24px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode On weddi wena dewal */
+.dark body {
+  background-color: #020617; 
+  color: #f8fafc;
+  background-image: radial-gradient(rgba(51, 65, 85, 0.4) 1px, transparent 1px);
 }
